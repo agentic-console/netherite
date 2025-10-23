@@ -1,0 +1,121 @@
+/* Netherite Content Script Styles */
+
+/* Base styles for glassmorphic components */
+.netherite-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+}
+
+.netherite-metallic {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(200, 200, 200, 0.1) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+
+/* Dark mode variants */
+.netherite-dark-mode .netherite-glass {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.netherite-dark-mode .netherite-metallic {
+  background: linear-gradient(
+    135deg,
+    rgba(60, 60, 60, 0.3) 0%,
+    rgba(40, 40, 40, 0.2) 50%,
+    rgba(60, 60, 60, 0.3) 100%
+  );
+}
+
+/* Scanner animation */
+@keyframes netherite-scan-effect {
+  0% {
+    top: 0;
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.netherite-scanner {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.8),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  z-index: 2147483646;
+  animation: netherite-scan-effect 2s ease-in-out;
+}
+
+/* Utility classes */
+.netherite-hidden {
+  display: none !important;
+}
+
+.netherite-dragging {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Common animations */
+@keyframes netherite-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes netherite-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.netherite-animate-fade-in {
+  animation: netherite-fade-in 0.3s ease-out;
+}
+
+.netherite-animate-slide-up {
+  animation: netherite-slide-up 0.4s ease-out;
+}
+
+/* Ensure all Netherite elements have proper z-index */
+[id^="netherite-"] {
+  position: relative;
+  z-index: 2147483640;
+}
+
+/* Prevent conflicts with host page styles */
+[id^="netherite-"] * {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}

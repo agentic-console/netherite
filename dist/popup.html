@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netherite AI Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="netherite-popup">
+        <div class="header">
+            <div class="logo">
+                <img src="icons/logo.png" alt="Netherite Logo" class="logo-image">
+                <h1>Netherite</h1>
+            </div>
+            <div class="version">v1.0.0</div>
+        </div>
+        
+        <div class="status-section">
+            <div id="ai-status" class="status-indicator">
+                <div class="status-dot"></div>
+                <span id="status-text">Checking AI availability...</span>
+            </div>
+        </div>
+        
+        <div class="document-section">
+            <h2>Document Upload</h2>
+            <p class="description">Upload a document to reference with @doc in chat</p>
+            
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <p>Drop files here or click to browse</p>
+                <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx" hidden>
+            </div>
+            
+            <div id="currentDocument" class="current-document" style="display: none;">
+                <div class="doc-info">
+                    <span class="doc-name" id="docName"></span>
+                    <button id="removeDoc" class="remove-btn">×</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Quick Start</h3>
+            <ol>
+                <li>Press <kbd>Alt+N</kbd> on any webpage</li>
+                <li>Click <strong>View</strong> 👁️ to analyze the page</li>
+                <li>Click <strong>Chat</strong> 💬 to start conversation</li>
+                <li>Use <strong>@doc</strong> to reference your document</li>
+                <li>Click <strong>Apply</strong> to fill forms automatically</li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>Powered by Chrome's Built-in AI (Gemini Nano)</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
